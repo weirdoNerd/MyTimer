@@ -443,16 +443,23 @@
       );
     }
 
-    /* Playback Controls Group */
+    /* Playback Controls Group (Swiss Hierarchy: Primary Hero Row + 3 Utility Columns) */
     .playback-controls {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 8px;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
     }
     .playback-controls button {
-      padding: 10px 8px;
+      padding: 9px 8px;
       font-size: 11px;
+      white-space: nowrap;
+    }
+    #btn-start-pause {
+      grid-column: 1 / -1;
+      padding: 12px 14px;
+      font-size: 12px;
+      font-weight: 700;
     }
 
     /* 3-Column Summary Metrics Box */
@@ -913,9 +920,15 @@
     }
 
     body.focus-mode-active .playback-controls {
-      grid-template-columns: 1.5fr 1fr 1fr;
-      max-width: 540px;
-      margin: 0 auto 32px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 480px;
+      margin: 0 auto 24px auto;
+    }
+    body.focus-mode-active #btn-start-pause {
+      grid-column: 1 / -1;
+      padding: 14px 16px;
+      font-size: 13px;
     }
 
     body.focus-mode-active .metrics-box {
@@ -931,7 +944,10 @@
         font-size: 3.2rem;
       }
       .playback-controls {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      #btn-start-pause {
+        grid-column: 1 / -1;
       }
       .form-grid {
         grid-template-columns: 1fr;
@@ -1054,7 +1070,7 @@
         </div>
 
         <!-- Keyboard Shortcuts Legend -->
-        <div class="shortcuts-legend" style="display:flex; justify-content:space-between; font-size:9px; color:var(--text-muted); letter-spacing:0.06em; margin-top:-16px; margin-bottom:20px; text-transform:uppercase;">
+        <div class="shortcuts-legend" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px; font-size:9px; color:var(--text-muted); letter-spacing:0.06em; margin-bottom:20px; text-transform:uppercase;">
           <span>[SPACE] PLAY/PAUSE</span>
           <span>[R] RESET</span>
           <span>[N] SKIP</span>
